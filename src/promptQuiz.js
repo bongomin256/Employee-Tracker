@@ -43,7 +43,7 @@ const addRoleQuiz = [
     type: "list",
     message: "Which department does this role belongs to?",
     name: "department",
-    choice: ["Engineering", "Finance", "Legal", "Sales", "Service"],
+    choices: ["Engineering", "Finance", "Legal", "Sales", "Service"],
     //This choices will have an empty array in the beginning
   },
 ];
@@ -64,7 +64,7 @@ const addEmployeeQuiz = [
     type: "list",
     message: "What is the employee's role?",
     name: "empRole",
-    choice: [
+    choices: [
       // this choices will be an empty array at the beginning
       "Salesperson",
       "Lead Engineer",
@@ -82,7 +82,7 @@ const addEmployeeQuiz = [
     type: "list",
     message: "Who is the employee's manager?",
     name: "empManager",
-    choice: [
+    choices: [
       //this is will be an empty array at the beginning beside the none
       "None",
       "Godfrey Bongomin",
@@ -100,7 +100,7 @@ const updateEmpRoleQuiz = [
     type: "list",
     message: "Which employee's role do you want to update?",
     name: "empUpdate",
-    choice: [
+    choices: [
       // It will be an empty array at the beginning
       "Godfrey Bongomin",
       "Kelsea Bongomin",
@@ -115,7 +115,7 @@ const updateEmpRoleQuiz = [
     type: "list",
     message: "What role do you want to assign the selected employee?",
     name: "updateRole",
-    choice: [
+    choices: [
       // It will be an empty array at the beginning
       "Salesperson",
       "Lead Engineer",

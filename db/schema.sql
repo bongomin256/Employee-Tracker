@@ -14,10 +14,8 @@ CREATE TABLE roles(
     title VARCHAR(40) NOT NULL,
     salary DECIMAL,
     department_id INT,
-    PRIMARY KEY(id) 
-    FOREIGN KEY (department_id)
-    REFERENCES departments(id)
-    ON DELETE SET NULL
+    PRIMARY KEY(id), 
+    FOREIGN KEY (department_id) REFERENCES departments(id) ON DELETE SET NULL
 );
 
 CREATE TABLE employee(
@@ -26,11 +24,7 @@ CREATE TABLE employee(
     last_name VARCHAR(30) NOT NULL,
     role_id INT,
     manager_id INT,
-    PRIMARY KEY(id)
-    FOREIGN KEY (role_id)
-    REFERENCES roles(id)
-    ON DELETE SET NULL,
-    FOREIGN KEY (manager_id)
-    REFERENCES employee(id)
-    ON DELETE SET NULL
+    PRIMARY KEY(id),
+    FOREIGN KEY (role_id) REFERENCES roles(id) ON DELETE SET NULL,
+    FOREIGN KEY (manager_id) REFERENCES employee(id) ON DELETE SET NULL
 );
