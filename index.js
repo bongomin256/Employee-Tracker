@@ -1,4 +1,4 @@
-const db = require("./src/dbconnnection");
+const db = require("./config/connection");
 const { menuOption, addDepartment } = require("./lib/department");
 
 db.connect((err) => {
