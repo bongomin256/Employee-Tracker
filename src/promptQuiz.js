@@ -1,5 +1,8 @@
 const inquirer = require("inquirer");
 
+// const { addEmployee } = require("../lib/employee");
+// const { addRole } = require("../lib/roles");
+
 const menuQuiz = [
   {
     type: "list",
@@ -131,10 +134,33 @@ const updateEmpRoleQuiz = [
   },
 ];
 
+// function menuOption() {
+//   inquirer.prompt(menuQuiz).then((response) => {
+//     if (response.menu === "Add a department") {
+//       addDepartment();
+//     } else if (response.menu === "Add a role") {
+//       addRole();
+//     } else if (response.menu === "Add an employee") {
+//       addEmployee();
+//     } else if (response.menu === "View all employees") {
+//       viewAllEmployees();
+//     } else if (response.menu === "Update an employee role") {
+//       updateEmployeeRole();
+//     } else if (response.menu === "View all roles") {
+//       viewAllRoles();
+//     } else if (response.menu === "View all roles") {
+//       viewAllDept();
+//     } else {
+//       quit();
+//     }
+//   });
+// }
+
 module.exports = {
   updateEmpRoleQuiz,
   addDepartmentQuiz,
   addEmployeeQuiz,
   menuQuiz,
   addRoleQuiz,
+  // menuOption,
 };
