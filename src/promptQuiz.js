@@ -3,6 +3,9 @@ const inquirer = require("inquirer");
 // const { addEmployee } = require("../lib/employee");
 // const { addRole } = require("../lib/roles");
 
+const roleChoices = [];
+const { departmentChoices } = require("../lib/department");
+const managerChoices = ["Null"];
 const menuQuiz = [
   {
     type: "list",
@@ -17,6 +20,10 @@ const menuQuiz = [
       "Add a department",
       "View all departments",
       "Exit",
+      "Delete an Employee",
+      "Delete a role",
+      "Delete a department",
+      "View employee by department",
     ],
   },
 ];
@@ -46,7 +53,7 @@ const addRoleQuiz = [
     type: "list",
     message: "Which department does this role belongs to?",
     name: "department",
-    choices: ["Engineering", "Finance", "Legal", "Sales", "Service"],
+    choices: departmentChoices,
     //This choices will have an empty array in the beginning
   },
 ];
@@ -79,6 +86,7 @@ const addEmployeeQuiz = [
       "Slaes Lead",
       "Salesperson",
       "Lead Engineer",
+      ,
     ],
   },
   {
@@ -133,28 +141,6 @@ const updateEmpRoleQuiz = [
     ],
   },
 ];
-
-// function menuOption() {
-//   inquirer.prompt(menuQuiz).then((response) => {
-//     if (response.menu === "Add a department") {
-//       addDepartment();
-//     } else if (response.menu === "Add a role") {
-//       addRole();
-//     } else if (response.menu === "Add an employee") {
-//       addEmployee();
-//     } else if (response.menu === "View all employees") {
-//       viewAllEmployees();
-//     } else if (response.menu === "Update an employee role") {
-//       updateEmployeeRole();
-//     } else if (response.menu === "View all roles") {
-//       viewAllRoles();
-//     } else if (response.menu === "View all roles") {
-//       viewAllDept();
-//     } else {
-//       quit();
-//     }
-//   });
-// }
 
 module.exports = {
   updateEmpRoleQuiz,
