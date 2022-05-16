@@ -55,9 +55,8 @@ Incase of any question[s] or suggestion[s] concerning this appication, please co
 ## Links
 
 - [Github app repo](https://github.com/bongomin256/Employee-Tracker)
-- [Link to video]()
+- [Link to video](https://youtu.be/u_GUdyKKi6w)
 
 ## Screenshots
 
 ![screenshot](./images/screenshot1.png)
-![screenshot](./images/screenshot2.png)
