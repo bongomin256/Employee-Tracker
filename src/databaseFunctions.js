@@ -53,21 +53,9 @@ function menuOption() {
 
 // Database Departments table functions below
 
-// const departmentChoices = [];
-
-// fubction that handles adding a ne department
+// function that handles adding a ne department
 function addDepartment() {
   inquirer.prompt(addDepartmentQuiz).then((response) => {
-    // departmentChoices.forEach(departmentChoices.push(response));
-
-    const departmentChoices = [];
-    for (let i = 0; i < response.length; i++) {
-      departmentChoices.push(response.departmentName[i]);
-    }
-
-    // }
-
-    console.log("Choices:", departmentChoices);
     connection.query(
       `INSERT INTO departments (departmentName) VALUE(?)`,
       [response.departmentName],
@@ -83,6 +71,7 @@ function addDepartment() {
   });
 }
 
+// delete function
 const deleteDept = () => {
   let dept = `SELECT * FROM departments`;
   connection.query(dept, (err, result) => {
@@ -115,6 +104,7 @@ const deleteDept = () => {
   });
 };
 
+// view all department function
 function viewAllDept() {
   let dept = `SELECT * FROM departments`;
   connection.query(dept, (err, result) => {
@@ -213,91 +203,6 @@ const deleteRole = () => {
   });
 };
 
-// Database employee table functions
-
-// const addEmployee = () => {
-//   let add = `SELECT employee.id, employee.first_name, employee.last_name, employee.role_id, roles.title, departments.departmentName,
-//   roles.salary, employee.manager_id
-//   FROM employee
-//   INNER JOIN roles on roles.id = employee.role_id
-//   INNER JOIN departments ON departments.id = roles.department_id`;
-
-//   connection.query(add, (err, res) => {
-//     const empList = res.map((employee) => {
-//       return {
-//         name: `${employee.first_name} ${employee.last_name}`,
-//         value: employee.id,
-//       };
-//     });
-//     inquirer
-//       .prompt([
-//         {
-//           // when you are adding a new employee (when Add employee is chosen)
-//           type: "input",
-//           message: "What is the employee's first name?",
-//           name: "firstName",
-//         },
-//         {
-//           type: "input",
-//           message: "What is the employee's last name?",
-//           name: "lastName",
-//         },
-//         {
-//           type: "input", //list
-//           message: "What is the employee's role?",
-//           name: "empRole",
-//           //   choices: res.map((roles) => {
-//           //     return { name: roles.title, value: roles.role_id };
-//           //   }),
-//         },
-//         {
-//           type: "input", //list
-//           message: "Who is the employee's manager?",
-//           name: "empManager",
-//           //   choices: empList,
-//         },
-//       ])
-//       .then((response) => {
-//         connection.query(
-//           `INSERT INTO employee(first_name,last_name,role_id,manager_id) VALUE(?,?,?,?)`,
-//           [
-//             response.firstName,
-//             response.lastName,
-//             response.empRole,
-//             response.empManager,
-//           ],
-//           (err, result) => {
-//             err ? console.log(err) : console.table("\n", result);
-//             console.log(
-//               `${response.firstName} ${response.lastName} is successfully added to the database`
-//             );
-//             menuOption();
-//           }
-//         );
-//       });
-//   });
-
-//   // inquirer.prompt(addEmployeeQuiz).then((response) => {
-//   //   connection.query(
-//   //     `INSERT INTO employee(first_name,last_name,role_id,manager_id) VALUE(?,?,?,?)`,
-//   //     [
-//   //       response.firstName,
-//   //       response.lastName,
-//   //       response.empRole,
-//   //       response.empManager,
-//   //     ],
-//   //     (err, result) => {
-//   //       err ? console.log(err) : console.table("\n", result);
-//   //       console.log(
-//   //         `${response.firstName} ${response.lastName} is successfully added to the database`
-//   //       );
-//   //       menuOption();
-//   //     }
-//   //   );
-//   //   // menuOption();
-//   // });
-// };
-
 const addEmployee = () => {
   inquirer.prompt(addEmployeeQuiz).then((response) => {
     connection.query(
@@ -349,7 +254,7 @@ const viewEmployeesByManager = () => {
           type: "list",
           message: "Please select manager to view employees",
           name: "Managers",
-          choices: managerList,
+          choices: [managerList],
         },
       ])
       .then((feedback) => {
@@ -404,21 +309,6 @@ const viewEmpByDepartment = () => {
   });
 };
 
-// const updateEmployeeRole = () => {
-//   inquirer.prompt(updateEmpRoleQuiz).then((response) => {
-//     let update = `UPDATE employee SET role_id = ? WHERE id = ?`;
-//     connection.query(
-//       update,
-//       [response.choice, response.choices],
-//       (err, result) => {
-//         err ? console.log(err) : console.table("\n", result);
-//         menuOption();
-//       }
-//     );
-
-//   });
-// };
-
 const updateEmployeeRole = async () => {
   inquirer.prompt(updateEmpRoleQuiz).then((response) => {
     let update = `UPDATE employee SET role_id = ? WHERE id = ?`;
@@ -465,7 +355,4 @@ const deleteEmployee = () => {
   });
 };
 
-// menuOption();
-// addDepartment();
-
-module.exports = { menuOption, addDepartment };
+module.exports = { menuOption };

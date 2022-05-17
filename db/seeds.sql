@@ -8,20 +8,6 @@ VALUE
 ('Legal'),
 ('Sales');
 
--- Putiing datas into employee table
-INSERT INTO employee(first_name, last_name, role_id, manager_id)
-VALUE
-('Godfrey', 'Bongomin', 1, 1),
-('Emma', 'Okelo', 2, 9),
-('Wycliff', 'Mugume', 3, NULL),
-('Colin', 'Adams', 4, NULL),
-('Kelsea', 'Bongomin', 5, NULL ),
-('Ketty', 'Aber', 6, 3),
-('Kristin', 'Orren', 7, 5),
-('Ivan', 'Ojera', 8, 5),
-('Jackie', 'Orren', 9, 9),
-('Eric', 'Delmar', 10, 10);
-
 -- putting datas into roles table
 INSERT INTO roles(title, salary, department_id)
 VALUE
@@ -35,6 +21,20 @@ VALUE
 ('Salesperson', 60000, 4),
 ('Account Manager', 100000, 2),
 ('Lead Engineer', 120000, 1);
+
+-- Putiing datas into employee table
+INSERT INTO employee(first_name, last_name, role_id, manager_id)
+VALUE
+('Godfrey', 'Bongomin', 1, 1),
+('Emma', 'Okelo', 2, 9),
+('Wycliff', 'Mugume', 3, NULL),
+('Colin', 'Adams', 4, NULL),
+('Kelsea', 'Bongomin', 5, NULL ),
+('Ketty', 'Aber', 6, 3),
+('Kristin', 'Orren', 7, 5),
+('Ivan', 'Ojera', 8, 5),
+('Jackie', 'Orren', 9, 9),
+('Eric', 'Delmar', 10, 10);
 
 
 
